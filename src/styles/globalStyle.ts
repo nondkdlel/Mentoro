@@ -49,4 +49,7 @@ export const GlobalStyle = createGlobalStyle`
   ul,li {
     list-style-type: none;
   }
+  select, input {
+    outline: none;
+  }
 `;

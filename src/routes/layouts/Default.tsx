@@ -17,7 +17,4 @@ export default function DefaultLayout() {
 }
 const WrapContent = styled.div`
   min-height: 100vh;
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
 `;
