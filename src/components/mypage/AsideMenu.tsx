@@ -11,7 +11,7 @@ function AsideMenu({ title }: titleType) {
   const sellerMenuList = [
     "판매 관리",
     "MY 서비스",
-    "My 포트폴리오",
+    "MY 포트폴리오",
     "수익 관리",
     "사업자 인증하기",
   ];

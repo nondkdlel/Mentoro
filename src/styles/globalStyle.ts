@@ -55,4 +55,8 @@ export const GlobalStyle = createGlobalStyle`
   input[type="text"], input[type="button"], input[type="file"], input[type="tel"] {
     cursor: pointer;
   }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
 `;

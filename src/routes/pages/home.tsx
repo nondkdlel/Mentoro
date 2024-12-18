@@ -362,7 +362,7 @@ const VodSection = styled.div`
     color: ${theme.colors.white};
     border-radius: 8px;
     &:hover {
-      transition: 1s;
+      transition: 0.8s;
       background-color: ${theme.colors.hoverMain};
       box-shadow: 0px 0px 16px rgba(10, 102, 218, 0.5);
     }
