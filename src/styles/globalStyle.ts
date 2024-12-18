@@ -52,4 +52,7 @@ export const GlobalStyle = createGlobalStyle`
   select, input {
     outline: none;
   }
+  input[type="text"], input[type="button"], input[type="file"], input[type="tel"] {
+    cursor: pointer;
+  }
 `;

@@ -3,7 +3,10 @@ import styled from "styled-components";
 
 import { theme } from "@style/theme";
 
-function TabMenu({ title }: any) {
+interface titleType {
+  title: (title: string) => void;
+}
+function TabMenu({ title }: titleType) {
   const tabList: string[] = [
     "BLOG",
     "IT 개발",
