@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import { StatusList, StatusBox, TabMenuStyle } from "./styles";
@@ -7,6 +8,8 @@ import { theme } from "@style/theme";
 function SalesManagement() {
   const [active, setActive] = useState<string>("전체");
   const tabList = ["전체", "진행중", "거래 완료", "주문 취소"];
+
+  const navigate = useNavigate();
   return (
     <SalesManagementWrapper>
       <SearchBox>
@@ -56,6 +59,7 @@ function SalesManagement() {
               type="button"
               className="review-btn default-btn "
               value="리뷰 확인"
+              onClick={() => navigate("/mypage/seller/review/create")}
             />
           </div>
         </StatusBox>

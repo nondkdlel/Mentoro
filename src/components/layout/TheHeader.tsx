@@ -15,7 +15,7 @@ export default function TheHeader() {
         <Link to="/vod">전자책/VOD</Link>
         <Link to="/alarm">알림</Link>
         <Link to="/message">메시지</Link>
-        <Link to="/mypage">마이페이지</Link>
+        <Link to="/mypage/seller">마이페이지</Link>
       </nav>
     </Header>
   );

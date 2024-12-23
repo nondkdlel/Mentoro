@@ -8,7 +8,13 @@ import Specialist from "@page/specialist/index";
 import Vod from "@page/vod/index";
 import Alarm from "@page/alarm/index";
 import Message from "@page/message/index";
-import Mypage from "@page/mypage/index";
+
+import SellerMypage from "@page/mypage/seller";
+import ReviewCreate from "@page/mypage/seller/sales/ReviewCreate";
+import ServiceEnrollStep1 from "@page/mypage/seller/ServiceEnrollStep1";
+import ServiceEnrollStep2 from "@page/mypage/seller/ServiceEnrollStep2";
+import ServiceEnrollStep3 from "@page/mypage/seller/ServiceEnrollStep3";
+import PortfolioCreate from "@page/mypage/seller/portfolio/PortfolioCreate";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +46,32 @@ const router = createBrowserRouter([
       },
       {
         path: "/mypage",
-        element: <Mypage />,
+        children: [
+          {
+            path: "seller",
+            element: <SellerMypage />,
+          },
+          {
+            path: "seller/review/create",
+            element: <ReviewCreate />,
+          },
+          {
+            path: "seller/portfolio/create",
+            element: <PortfolioCreate />,
+          },
+          {
+            path: "service/enroll/step1",
+            element: <ServiceEnrollStep1 />,
+          },
+          {
+            path: "service/enroll/step2",
+            element: <ServiceEnrollStep2 />,
+          },
+          {
+            path: "service/enroll/step3",
+            element: <ServiceEnrollStep3 />,
+          },
+        ],
       },
     ],
   },

@@ -6,7 +6,11 @@ import { StatusList, StatusBox, LinkBtnStyle } from "./styles";
 function MyService() {
   return (
     <MyServiceWrapper>
-      <Link className="link-btn" type="button" to="">
+      <Link
+        className="link-btn"
+        type="button"
+        to="/mypage/service/enroll/step1"
+      >
         <p>서비스 추가하기</p>
       </Link>
       <StatusList>

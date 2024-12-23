@@ -49,10 +49,10 @@ export const GlobalStyle = createGlobalStyle`
   ul,li {
     list-style-type: none;
   }
-  select, input {
+  select, input, textarea {
     outline: none;
   }
-  input[type="text"], input[type="button"], input[type="file"], input[type="tel"] {
+  input[type="button"], input[type="file"], input[type="tel"] {
     cursor: pointer;
   }
   table {

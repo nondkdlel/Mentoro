@@ -6,7 +6,11 @@ import { StatusList, StatusBox, LinkBtnStyle } from "./styles";
 function MyPortfolio() {
   return (
     <MyPortfolioWrapper>
-      <Link className="link-btn" type="button" to="">
+      <Link
+        className="link-btn"
+        type="button"
+        to="/mypage/seller/portfolio/create"
+      >
         <p>포트폴리오 등록하기</p>
       </Link>
       <StatusList>
