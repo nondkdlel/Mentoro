@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import { StatusList, StatusBox, TabMenuStyle } from "./styles";
-import { theme } from "@style/theme";
+import { StatusList, StatusBox } from "./styles";
+import { theme, TabMenuStyle } from "@style/theme";
 
 function SalesManagement() {
   const [active, setActive] = useState<string>("전체");

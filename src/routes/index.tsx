@@ -4,7 +4,10 @@ import DefaultLayout from "@layout/Default";
 
 import Home from "@page/home";
 import Jobs from "@page/jobs/index";
-import Specialist from "@page/specialist/index";
+
+import Specialist from "@page/specialist";
+import SpecialistDetail from "@page/specialist/SpecialistDetail";
+
 import Vod from "@page/vod/index";
 import Alarm from "@page/alarm/index";
 import Message from "@page/message/index";
@@ -31,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/specialist",
         element: <Specialist />,
+      },
+      {
+        path: "/specialist/detail",
+        element: <SpecialistDetail />,
       },
       {
         path: "/vod",

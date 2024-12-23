@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { TabMenuStyle } from "@comp/mypage/styles";
+import { TabMenuStyle } from "@style/theme";
 
 interface ActivePropsType {
   active: number;

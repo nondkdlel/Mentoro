@@ -124,20 +124,7 @@ export const LinkBtnStyle = css`
     }
   }
 `;
-export const TabMenuStyle = css`
-  border-bottom: 1px solid ${theme.colors.borderColor};
-  li {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 20px;
-    color: ${theme.colors.gray};
-    margin: 0 35px 10px 0;
-    cursor: pointer;
-    &.on {
-      color: ${theme.colors.mainColor};
-    }
-  }
-`;
+
 export const StatusAreaStyle = css`
   dl {
     display: grid;

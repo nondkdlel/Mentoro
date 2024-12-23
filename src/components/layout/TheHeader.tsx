@@ -1,21 +1,38 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { theme, LayoutStyle } from "@style/theme";
 
 export default function TheHeader() {
+  const navigations = [
+    { to: "/jobs", label: "AI N잡 설계" },
+    { to: "/specialist", label: "전문가 센터" },
+    { to: "/vod", label: "전자책/VOD" },
+    { to: "/alarm", label: "알림" },
+    { to: "/message", label: "메시지" },
+    { to: "/mypage/seller", label: "마이페이지" },
+  ];
   return (
     <Header>
       <Link to="/" className="logo">
         MENTORO
       </Link>
       <nav>
-        <Link to="/jobs">AI N잡 설계</Link>
+        {navigations.map((nav) => (
+          <NavLink
+            key={nav.to}
+            to={nav.to}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {nav.label}
+          </NavLink>
+        ))}
+        {/* <Link to="/jobs">AI N잡 설계</Link>
         <Link to="/specialist">전문가 센터</Link>
         <Link to="/vod">전자책/VOD</Link>
         <Link to="/alarm">알림</Link>
         <Link to="/message">메시지</Link>
-        <Link to="/mypage/seller">마이페이지</Link>
+        <Link to="/mypage/seller">마이페이지</Link> */}
       </nav>
     </Header>
   );
@@ -44,8 +61,11 @@ const Header = styled.header`
   nav a {
     font-size: 18px;
     padding-left: 30px;
-    font-weight: 500;
+    font-weight: 600;
     &:hover {
+      color: ${theme.colors.mainColor};
+    }
+    &.active {
       color: ${theme.colors.mainColor};
     }
   }

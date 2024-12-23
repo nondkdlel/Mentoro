@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import { TabMenuStyle, StatusAreaStyle } from "./styles";
-import { theme } from "@style/theme";
+import { StatusAreaStyle } from "./styles";
+import { theme, TabMenuStyle } from "@style/theme";
 
 function PayManagement() {
   const [active, setActive] = useState(0);

@@ -2,11 +2,13 @@ import { useRef, useState } from "react";
 import styled from "styled-components";
 
 import { theme } from "@style/theme";
+import { Link, useNavigate } from "react-router-dom";
 
 function ProductBox() {
   const [wish, setWish] = useState<Boolean>(false);
   const refEl = useRef<HTMLInputElement>(null);
   const refImg = useRef<HTMLImageElement>(null);
+  const navigate = useNavigate();
 
   const handleMouseOver = () => {
     refEl && refEl.current && refEl.current.classList.add("on");
@@ -27,43 +29,51 @@ function ProductBox() {
   };
   return (
     <ProductBoxWrapper>
-      <div className="thum-box">
-        <img
-          className="thum-img"
-          src="/images/dummy-thum.png"
-          alt=""
-          ref={refImg}
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOut}
-        />
-        <div
-          className="wish-icon"
-          ref={refEl}
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOut}
-          onClick={onWish}
-        >
-          <img src="/images/icon/favorite-off-icon.svg" alt="" />
+      <Link to="/specialist/detail">
+        <div className="thum-box">
+          <img
+            className="thum-img"
+            src="/images/dummy-thum.png"
+            alt=""
+            ref={refImg}
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut}
+          />
+          <div
+            className="wish-icon"
+            ref={refEl}
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut}
+            onClick={onWish}
+          >
+            <img src="/images/icon/favorite-off-icon.svg" alt="" />
+          </div>
         </div>
-      </div>
-      <p className="thum-txt">
-        APP앱개발 전문 업체 노빌더 기획/디자인/개발까지
-      </p>
-      <ObjectiveInfo>
-        <div className="left-box">
-          <img className="star-icon" src="/images/icon/star-icon.svg" alt="" />
-          <p>
-            4.0 <span>(100)</span>{" "}
-          </p>
-        </div>
-        <div className="right-box">490,000원~</div>
-      </ObjectiveInfo>
+        <p className="thum-txt">
+          APP앱개발 전문 업체 노빌더 기획/디자인/개발까지
+        </p>
+        <ObjectiveInfo>
+          <div className="left-box">
+            <img
+              className="star-icon"
+              src="/images/icon/star-icon.svg"
+              alt=""
+            />
+            <p>
+              4.0 <span>(100)</span>{" "}
+            </p>
+          </div>
+          <div className="right-box">490,000원~</div>
+        </ObjectiveInfo>
+      </Link>
     </ProductBoxWrapper>
   );
 }
 const ProductBoxWrapper = styled.div`
+  cursor: pointer;
   .thum-box {
     position: relative;
+    margin-bottom: 10px;
   }
   .thum-img {
     height: 175px;
@@ -71,7 +81,6 @@ const ProductBoxWrapper = styled.div`
     border-radius: 8px;
     object-fit: cover;
     z-index: 0;
-    cursor: pointer;
     &.hover {
       filter: brightness(50%);
     }
@@ -100,6 +109,9 @@ const ProductBoxWrapper = styled.div`
   }
   .thum-txt {
     margin-bottom: 20px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 const ObjectiveInfo = styled.div`
