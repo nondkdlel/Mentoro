@@ -1,17 +1,41 @@
-import styled from "styled-components";
-import { theme } from "@style/theme";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
-function DetailRightContent() {
+import { theme } from "@style/theme";
+
+interface DetailPropsType {
+  url: string;
+}
+function DetailRightContent({ url }: DetailPropsType) {
+  const navigate = useNavigate();
   const [selectType, setSelectType] = useState(0);
+  const [like, setLike] = useState(true);
   const typeList = [
     "5분 전화 상담",
     "15분 전화 상담",
     "5분 채팅 상담",
     "15분 채팅 상담",
   ];
+
+  const onLike = (e: any) => {
+    const target = e.target;
+    setLike(!like);
+    like
+      ? (target.src = "/images/icon/favorite-on-icon.svg")
+      : (target.src = "/images/icon/favorite-border-icon.svg");
+  };
+
   return (
     <DetailRightContentWrapper>
+      <UserIconArea>
+        <button>
+          <img src="/images/icon/share-icon.svg" alt="공유하기" />
+        </button>
+        <button onClick={onLike}>
+          <img src="/images/icon/favorite-border-icon.svg" alt="좋아요" />
+        </button>
+      </UserIconArea>
       <InnerBox>
         <Consultation>
           <div className="section">
@@ -62,7 +86,11 @@ function DetailRightContent() {
             <dd>5,000원</dd>
           </dl>
           <div className="btn-area">
-            <input type="button" value="구매하기" />
+            <input
+              type="button"
+              value="구매하기"
+              onClick={() => navigate(url)}
+            />
             <input type="button" value="채팅하기" />
           </div>
         </TotalPrice>
@@ -71,6 +99,18 @@ function DetailRightContent() {
   );
 }
 const DetailRightContentWrapper = styled.div``;
+const UserIconArea = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 50px;
+  button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: ${theme.colors.transparent};
+    margin-left: 10px;
+  }
+`;
 const InnerBox = styled.div`
   padding: 50px 20px;
   border: 1px solid ${theme.colors.borderColor};

@@ -52,7 +52,7 @@ export const GlobalStyle = createGlobalStyle`
   select, input, textarea {
     outline: none;
   }
-  input[type="button"], input[type="file"], input[type="tel"] {
+  button, input[type="button"], input[type="file"], input[type="tel"] {
     cursor: pointer;
   }
   table {

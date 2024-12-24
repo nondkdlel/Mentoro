@@ -6,10 +6,11 @@ import Home from "@page/home";
 import Jobs from "@page/jobs/index";
 
 import Specialist from "@page/specialist";
-import SpecialistDetail from "@page/specialist/SpecialistDetail";
+import SpecialistDetail from "@page/specialist/detail";
+import SpecialistPayment from "@page/specialist/payment";
 
 import Vod from "@page/vod/index";
-import Alarm from "@page/alarm/index";
+// import Alarm from "@page/alarm/index";
 import Message from "@page/message/index";
 
 import SellerMypage from "@page/mypage/seller";
@@ -40,12 +41,12 @@ const router = createBrowserRouter([
         element: <SpecialistDetail />,
       },
       {
-        path: "/vod",
-        element: <Vod />,
+        path: "/specialist/payment",
+        element: <SpecialistPayment />,
       },
       {
-        path: "/alarm",
-        element: <Alarm />,
+        path: "/vod",
+        element: <Vod />,
       },
       {
         path: "/message",

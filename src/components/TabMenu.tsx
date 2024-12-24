@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { theme } from "@style/theme";
 
 interface titleType {
-  title: (title: string) => void;
+  onUpdatePage: (id: number) => void;
 }
-function TabMenu({ title }: titleType) {
+function TabMenu({ onUpdatePage }: titleType) {
   const tabList: string[] = [
     "BLOG",
     "IT 개발",
@@ -16,9 +16,9 @@ function TabMenu({ title }: titleType) {
     "기타",
   ];
   const [active, setActive] = useState<number>(0);
-  const onActive = (idx: number, tabName: string) => {
+  const onActive = (idx: number) => {
     setActive(idx);
-    title(tabName);
+    onUpdatePage(idx);
   };
   return (
     <TabContainer>
@@ -26,7 +26,7 @@ function TabMenu({ title }: titleType) {
         <li
           className={idx === active ? "active" : ""}
           key={idx}
-          onClick={() => onActive(idx, tabName)}
+          onClick={() => onActive(idx)}
         >
           {tabName}
         </li>

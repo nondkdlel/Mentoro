@@ -8,7 +8,7 @@ function SpecialistDetail() {
   return (
     <SpecialistDetailWrapper>
       <DetailLeftContent />
-      <DetailRightContent />
+      <DetailRightContent url="/specialist/payment" />
     </SpecialistDetailWrapper>
   );
 }

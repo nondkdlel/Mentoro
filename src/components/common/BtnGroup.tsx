@@ -11,8 +11,10 @@ interface BtnGroupPropsType {
   padding?: string;
   singleOnClick?: () => void;
   doubleOnClick?: () => void;
+  width?: string;
 }
 function BtnGroup({
+  width,
   padding,
   singleType,
   doubleType,
@@ -30,11 +32,17 @@ function BtnGroup({
           value={doubleBtnText}
           className="reverse"
           onClick={doubleOnClick}
+          style={{ width: width ? width : "200px" }}
         />
       ) : (
         ""
       )}
-      <input type={singleType} value={singleBtnText} onClick={singleOnClick} />
+      <input
+        type={singleType}
+        value={singleBtnText}
+        onClick={singleOnClick}
+        style={{ width: width ? width : "200px" }}
+      />
     </BtnGroupArea>
   );
 }
@@ -43,8 +51,7 @@ const BtnGroupArea = styled.div<BtnGroupPropsType>`
   text-align: center;
   margin: 0 auto;
   padding: ${({ padding }) => padding ?? "0"};
-  input[type="button"] {
-    width: 200px;
+  input {
     text-align: center;
     background-color: ${theme.colors.mainColor};
     border: 1px solid ${theme.colors.mainColor};
@@ -53,7 +60,7 @@ const BtnGroupArea = styled.div<BtnGroupPropsType>`
     border-radius: 6px;
     font-size: 16px;
   }
-  input[type="button"].reverse {
+  input.reverse {
     background-color: ${theme.colors.subColor};
     border: 1px solid ${theme.colors.subColor};
     color: ${theme.colors.mainColor};

@@ -8,14 +8,28 @@ import ProductBox from "@comp/ProductBox";
 import { ContentContainer, theme } from "@style/theme";
 
 function Specialist() {
-  const [title, setTitle] = useState<string>("BLOG");
-  function onTitle(name: string) {
-    setTitle(name);
+  const [tabNum, setTabNum] = useState<number>(0);
+  function onUpdatePage(id: number) {
+    setTabNum(id);
   }
   return (
     <SpecialListWrapper>
-      <TabMenu title={onTitle} />
-      <Title>{title}</Title>
+      <TabMenu onUpdatePage={onUpdatePage} />
+      <Title>
+        {tabNum === 0
+          ? "BLOG"
+          : tabNum === 1
+          ? "IT 개발"
+          : tabNum === 2
+          ? "영상/사진"
+          : tabNum === 3
+          ? "디자인"
+          : tabNum === 4
+          ? "부동산"
+          : tabNum === 5
+          ? "기타"
+          : ""}
+      </Title>
       <SelectBoxs />
       <ProductList>
         <ProductBox />

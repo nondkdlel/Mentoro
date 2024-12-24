@@ -27,7 +27,8 @@
       "@route/*": ["./src/routes"],
       "@layout/*": ["./src/routes/layouts/*"],
       "@page/*": ["./src/routes/pages/*"],
-      "@style/*": ["./src/styles/*"]
+      "@style/*": ["./src/styles/*"],
+      "@valtio/*": ["./valtio/*"]
     }
   },
   "include": ["src"]
