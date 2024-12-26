@@ -7,9 +7,9 @@ import Jobs from "@page/jobs/index";
 
 import Specialist from "@page/specialist";
 import SpecialistDetail from "@page/specialist/detail";
-import SpecialistPayment from "@page/specialist/payment";
 
 import Vod from "@page/vod/index";
+import VodDetail from "@page/vod/detail";
 
 import Message from "@page/message/index";
 
@@ -20,6 +20,8 @@ import ServiceEnrollStep2 from "@page/mypage/seller/ServiceEnrollStep2";
 import ServiceEnrollStep3 from "@page/mypage/seller/ServiceEnrollStep3";
 import PortfolioCreate from "@page/mypage/seller/portfolio/PortfolioCreate";
 import CustomerMypage from "@page/mypage/customer";
+
+import Payment from "@page/payment";
 
 const router = createBrowserRouter([
   {
@@ -41,13 +43,18 @@ const router = createBrowserRouter([
         path: "/specialist/detail",
         element: <SpecialistDetail />,
       },
-      {
-        path: "/specialist/payment",
-        element: <SpecialistPayment />,
-      },
+
       {
         path: "/vod",
         element: <Vod />,
+      },
+      {
+        path: "/vod/detail",
+        element: <VodDetail />,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       },
       {
         path: "/message",

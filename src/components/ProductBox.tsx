@@ -4,7 +4,10 @@ import styled from "styled-components";
 
 import { theme } from "@style/theme";
 
-function ProductBox() {
+interface ProductPropsType {
+  url?: string;
+}
+function ProductBox({ url = "" }: ProductPropsType) {
   const [wish, setWish] = useState<Boolean>(true);
   const refEl = useRef<HTMLInputElement>(null);
   const refImg = useRef<HTMLImageElement>(null);
@@ -46,7 +49,7 @@ function ProductBox() {
           <img src="/images/icon/favorite-off-icon.svg" alt="" />
         </div>
       </div>
-      <Link to="/specialist/detail">
+      <Link to={url}>
         <p className="thum-txt">
           APP앱개발 전문 업체 노빌더 기획/디자인/개발까지
         </p>

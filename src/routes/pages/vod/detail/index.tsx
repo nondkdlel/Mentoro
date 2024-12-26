@@ -2,13 +2,12 @@ import DetailLeftContent from "@comp/common/detail/DetailLeftContent";
 import DetailRightContent from "@comp/common/detail/DetailRightContent";
 import { DetailLayoutStyle } from "@comp/common/styles";
 
-function SpecialistDetail() {
+function VodDetail() {
   return (
     <DetailLayoutStyle>
       <DetailLeftContent />
-      <DetailRightContent isCounsel={true} url="/payment" />
+      <DetailRightContent url="/payment" />
     </DetailLayoutStyle>
   );
 }
-
-export default SpecialistDetail;
+export default VodDetail;

@@ -5,18 +5,18 @@ import PaymentRightContent from "@comp/common/payment/PaymentRightContent";
 
 import { ContentContainer } from "@style/theme";
 
-function SpecialistPayment() {
+function Payment() {
   return (
-    <SpecialistPaymentWrapper>
+    <PaymentWrapper>
       <h1>결제하기</h1>
       <PaymentContentWrapper>
         <PaymentLeftContent />
         <PaymentRightContent />
       </PaymentContentWrapper>
-    </SpecialistPaymentWrapper>
+    </PaymentWrapper>
   );
 }
-const SpecialistPaymentWrapper = styled.div`
+const PaymentWrapper = styled.div`
   ${ContentContainer}
   h1 {
     font-size: 28px;
@@ -29,4 +29,4 @@ const PaymentContentWrapper = styled.div`
   grid-template-columns: 6fr 4fr;
   gap: 80px;
 `;
-export default SpecialistPayment;
+export default Payment;

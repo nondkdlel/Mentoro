@@ -5,9 +5,10 @@ import styled from "styled-components";
 import { theme } from "@style/theme";
 
 interface DetailPropsType {
+  isCounsel?: boolean;
   url: string;
 }
-function DetailRightContent({ url }: DetailPropsType) {
+function DetailRightContent({ url, isCounsel = false }: DetailPropsType) {
   const navigate = useNavigate();
   const [selectType, setSelectType] = useState(0);
   const [like, setLike] = useState(true);
@@ -37,54 +38,65 @@ function DetailRightContent({ url }: DetailPropsType) {
         </button>
       </UserIconArea>
       <InnerBox>
-        <Consultation>
-          <div className="section">
-            <p className="thead type">상담 종류 선택</p>
-            <div className="select-type">
-              {typeList.map((type, idx) => (
-                <button
-                  key={idx}
-                  className={selectType === idx ? "on" : ""}
-                  onClick={() => setSelectType(idx)}
-                >
-                  {type}
-                </button>
-              ))}
+        {isCounsel && (
+          <Consultation>
+            <div className="section">
+              <p className="thead type">상담 종류 선택</p>
+              <div className="select-type">
+                {typeList.map((type, idx) => (
+                  <button
+                    key={idx}
+                    className={selectType === idx ? "on" : ""}
+                    onClick={() => setSelectType(idx)}
+                  >
+                    {type}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="section">
-            <p className="thead date">희망 상담 날짜</p>
-            <div className="select-type">
-              <input
-                id="dateSelect"
-                type="date"
-                placeholder="날짜를 선택해주세요."
-              />
+            <div className="section">
+              <p className="thead date">희망 상담 날짜</p>
+              <div className="select-type">
+                <input
+                  id="dateSelect"
+                  type="date"
+                  placeholder="날짜를 선택해주세요."
+                />
+              </div>
             </div>
-          </div>
-          <div className="section">
-            <p className="thead time">희망 상담 시간</p>
-            <div className="select-type">
-              <select name="" id="">
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
-                <option value="18:00">18:00</option>
-              </select>
+            <div className="section">
+              <p className="thead time">희망 상담 시간</p>
+              <div className="select-type">
+                <select name="" id="">
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                </select>
+              </div>
             </div>
-          </div>
-        </Consultation>
+          </Consultation>
+        )}
         <TotalPrice>
           <dl className="price-box">
             <dt>가격</dt>
             <dd>5,000원</dd>
           </dl>
+          {isCounsel ? (
+            ""
+          ) : (
+            <p className="noti-txt">
+              실제로 최종 합격한 자기소개서, 이력서, 포트폴리오 샘플들만
+              <br />
+              모았습니다.
+            </p>
+          )}
           <div className="btn-area">
             <input
               type="button"
@@ -193,6 +205,11 @@ const TotalPrice = styled.div`
   }
   dd {
     font-weight: 600;
+  }
+  .noti-txt {
+    padding-top: 30px;
+    font-size: 16px;
+    line-height: 1.5;
   }
   .btn-area {
     padding-top: 30px;
