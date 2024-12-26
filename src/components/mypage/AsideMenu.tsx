@@ -1,68 +1,56 @@
-import { useState } from "react";
+import { useSnapshot } from "valtio";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 
+import {
+  proxyActiveSellerTab,
+  proxyMypageSellerTabList,
+  proxyMypageCustomerTabList,
+  proxyActiveCustomerTab,
+} from "@valtio/mypage/MypageStatus";
+
 import { theme } from "@style/theme";
+import { useEffect } from "react";
 
-interface titleType {
-  title: (title: string) => void;
-}
-type positionType = {
-  seller: string;
-  customer: string;
-};
-type sellerMenuListType = {
-  [type in keyof positionType]: { id: number; name: string }[];
-};
-
-function AsideMenu({ title }: titleType) {
+function AsideMenu() {
   const { pathname } = useLocation();
-  const [active, onActive] = useState(0);
+  const url = pathname.split("/").splice(-1)[0];
 
-  const menuList: sellerMenuListType = {
-    seller: [
-      {
-        id: 0,
-        name: "판매 관리",
-      },
-      {
-        id: 1,
-        name: "MY 서비스",
-      },
-      {
-        id: 2,
-        name: "MY 포트폴리오",
-      },
-      {
-        id: 3,
-        name: "수익 관리",
-      },
-      {
-        id: 4,
-        name: "사업자 인증하기",
-      },
-    ],
-    customer: [],
-  };
-
-  const onSelectMenu = (name: string, idx: number) => {
-    onActive(idx);
-    title(name);
-  };
+  const sellerTabList = useSnapshot(proxyMypageSellerTabList);
+  const customerTabList = useSnapshot(proxyMypageCustomerTabList);
+  const { sellerActiveId } = useSnapshot(proxyActiveSellerTab);
+  const { customerActiveId } = useSnapshot(proxyActiveCustomerTab);
+  useEffect(() => {
+    proxyActiveSellerTab.sellerActiveId = 0;
+    proxyActiveCustomerTab.customerActiveId = 0;
+  }, []);
   return (
     <AsideMenuWrapper>
       <h1>마이페이지</h1>
       <MenuLink>
-        {menuList.seller.map((list, idx) => (
-          <Link
-            key={idx}
-            to={pathname}
-            className={active === idx ? "active" : ""}
-            onClick={() => onSelectMenu(list.name, idx)}
-          >
-            {list.name}
-          </Link>
-        ))}
+        {url === "seller"
+          ? sellerTabList.map((list) => (
+              <Link
+                key={list.id}
+                to={pathname}
+                className={sellerActiveId === list.id ? "active" : ""}
+                onClick={() => (proxyActiveSellerTab.sellerActiveId = list.id)}
+              >
+                {list.tabName}
+              </Link>
+            ))
+          : customerTabList.map((list) => (
+              <Link
+                key={list.id}
+                to={pathname}
+                className={customerActiveId === list.id ? "active" : ""}
+                onClick={() =>
+                  (proxyActiveCustomerTab.customerActiveId = list.id)
+                }
+              >
+                {list.tabName}
+              </Link>
+            ))}
       </MenuLink>
     </AsideMenuWrapper>
   );

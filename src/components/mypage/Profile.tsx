@@ -1,21 +1,26 @@
 import { useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import { theme } from "@style/theme";
 
 function Profile() {
-  const [imgFile, setImgFile] = useState<string | ArrayBuffer | null>("");
+  const [imgFile, setImgFile] = useState<string>("");
   const imgRef = useRef<any>(null);
   const [userName] = useState<string>("홍길동");
   const [readOnly, setReadOnly] = useState(true);
-  const [seller, setSeller] = useState(true);
+
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const url = pathname.split("/").splice(-1)[0];
 
   const saveProfileImg = () => {
     const file = imgRef.current.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setImgFile(reader.result);
+      const url = reader.result?.toString() as string;
+      setImgFile(url);
     };
   };
 
@@ -26,6 +31,12 @@ function Profile() {
     if (name && editBtn) {
       readOnly ? name.classList.add("active") : name.classList.remove("active");
     }
+  };
+
+  const onLoadType = () => {
+    url === "seller"
+      ? navigate("/mypage/customer")
+      : navigate("/mypage/seller");
   };
   return (
     <ProfileWrapper>
@@ -41,8 +52,8 @@ function Profile() {
         <label htmlFor="uploadFile">
           <img
             className="default-profile-img"
-            src={imgFile ? imgFile : `/images/dummy-profile.png`}
-            alt=""
+            src={imgFile ? imgFile : "/images/dummy-profile.png"}
+            alt="profile"
           />
         </label>
       </div>
@@ -60,14 +71,16 @@ function Profile() {
           onClick={onEdit}
         />
       </UserNameArea>
-      <RoleButton
-        className={seller ? "" : "on"}
-        onClick={() => setSeller(!seller)}
-      >
-        <input
-          type="button"
-          value={seller ? "고객 모드로 전환" : "전문가 모드로 전환"}
+      <RoleButton className={url === "seller" ? "" : "on"} onClick={onLoadType}>
+        <img
+          src={
+            url === "seller"
+              ? "/images/icon/change-circle-customer-icon.svg"
+              : "/images/icon/change-circle-seller-icon.svg"
+          }
+          alt=""
         />
+        <p>{url === "seller" ? "고객 모드로 전환" : "전문가 모드로 전환"}</p>
       </RoleButton>
     </ProfileWrapper>
   );
@@ -147,24 +160,29 @@ const UserNameArea = styled.div`
     border-radius: 4px;
   }
 `;
-const RoleButton = styled.div`
-  cursor: pointer;
+const RoleButton = styled.button`
+  width: 100%;
+  font-size: 16px;
+  padding: 15px 0;
+  color: ${theme.colors.mainColor};
   border: 1px solid ${theme.colors.mainColor};
-  background-color: transparent;
   border-radius: 6px;
-  input[type="button"] {
-    font-size: 16px;
-    padding: 15px 0;
-    width: 100%;
-    background: none;
-    border: none;
-    color: ${theme.colors.mainColor};
-  }
+  background-color: transparent;
   &.on {
     background-color: ${theme.colors.mainColor};
-    input[type="button"] {
-      color: ${theme.colors.white};
-    }
+    color: ${theme.colors.white};
+  }
+  img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+  p {
+    display: inline-block;
+    vertical-align: middle;
   }
 `;
 export default Profile;

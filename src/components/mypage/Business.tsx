@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
-import { StatusAreaStyle } from "./styles";
+import HoldingStatus from "@comp/mypage/common/HoldingStatus";
 import { theme } from "@style/theme";
+
 function Business() {
   return (
     <BusinessWrapper>
-      <StatusArea>
-        <dl>
-          <dt>등록 상태</dt>
-          <dd>등록 완료</dd>
-        </dl>
-      </StatusArea>
+      <HoldingStatus firstLeftText="등록 상태" firstRightText="등록 완료" />
       <FormArea>
         <div className="input-box">
           <p>사업자 등록번호</p>
@@ -52,9 +48,7 @@ function Business() {
 const BusinessWrapper = styled.div`
   padding: 50px 0;
 `;
-const StatusArea = styled.div`
-  ${StatusAreaStyle}
-`;
+
 const FormArea = styled.form`
   padding: 50px 0 80px;
   .input-box {

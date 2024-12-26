@@ -1,14 +1,12 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import { StatusList, StatusBox } from "./styles";
-import { theme, TabMenuStyle } from "@style/theme";
+import { theme } from "@style/theme";
+
+import TabMenu from "@comp/common/TabMenu";
 
 function SalesManagement() {
-  const [active, setActive] = useState<string>("전체");
-  const tabList = ["전체", "진행중", "거래 완료", "주문 취소"];
-
   const navigate = useNavigate();
   return (
     <SalesManagementWrapper>
@@ -22,19 +20,11 @@ function SalesManagement() {
         <input type="text" />
         <input type="button" value="검색" />
       </SearchBox>
-      <TabMenu>
-        {tabList.map((tab, idx) => (
-          <li
-            className={active === tab ? "on" : ""}
-            onClick={() => {
-              setActive(tab);
-            }}
-            key={idx}
-          >
-            {tab}
-          </li>
-        ))}
-      </TabMenu>
+      <TabMenu
+        tabList={["전체", "진행중", "거래 완료", "주문 취소"]}
+        $fontSize="20px"
+        $padding="0 60px 10px 0"
+      />
       <StatusList>
         <StatusBox>
           <div className="left-box grid-aside">
@@ -95,8 +85,5 @@ const SearchBox = styled.div`
     font-size: 16px;
     border-radius: 4px;
   }
-`;
-const TabMenu = styled.ul`
-  ${TabMenuStyle}
 `;
 export default SalesManagement;

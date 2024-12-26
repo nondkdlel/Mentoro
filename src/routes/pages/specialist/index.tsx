@@ -1,32 +1,32 @@
-import { useState } from "react";
 import styled from "styled-components";
 
-import TabMenu from "@comp/TabMenu";
+import TabMenu from "@comp/common/TabMenu";
 import SelectBoxs from "@comp/Selecboxs";
 import ProductBox from "@comp/ProductBox";
 
 import { ContentContainer, theme } from "@style/theme";
+import { proxyActiveTab } from "@valtio/common/ActiveTab";
+import { useSnapshot } from "valtio";
 
 function Specialist() {
-  const [tabNum, setTabNum] = useState<number>(0);
-  function onUpdatePage(id: number) {
-    setTabNum(id);
-  }
+  const { tabId } = useSnapshot(proxyActiveTab);
   return (
     <SpecialListWrapper>
-      <TabMenu onUpdatePage={onUpdatePage} />
+      <TabMenu
+        tabList={["BLOG", "IT 개발", "영상/사진", "디자인", "부동산", "기타"]}
+      />
       <Title>
-        {tabNum === 0
+        {tabId === 0
           ? "BLOG"
-          : tabNum === 1
+          : tabId === 1
           ? "IT 개발"
-          : tabNum === 2
+          : tabId === 2
           ? "영상/사진"
-          : tabNum === 3
+          : tabId === 3
           ? "디자인"
-          : tabNum === 4
+          : tabId === 4
           ? "부동산"
-          : tabNum === 5
+          : tabId === 5
           ? "기타"
           : ""}
       </Title>

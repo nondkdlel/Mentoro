@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useSnapshot } from "valtio";
 import styled from "styled-components";
 
 import { ContentContainer } from "@style/theme";
@@ -11,28 +11,40 @@ import MyPortfolio from "@comp/mypage/MyPortfolio";
 import PayManagement from "@comp/mypage/PayManangement";
 import Business from "@comp/mypage/Business";
 
-function Mypage() {
-  const [tabName, setTabName] = useState<string>("판매 관리");
-  const onTitle = (pageTit: string) => {
-    setTabName(pageTit);
-  };
+import { proxyActiveSellerTab } from "@valtio/mypage/MypageStatus";
+
+function SellerMypage() {
+  const { sellerActiveId } = useSnapshot(proxyActiveSellerTab);
+
   return (
     <MypageWrapper>
       <LeftArea>
         <Profile />
-        <AsideMenu title={onTitle} />
+        <AsideMenu />
       </LeftArea>
       <RightArea>
-        <h1>{tabName}</h1>
-        {tabName === "판매 관리" ? (
+        <h1>
+          {sellerActiveId === 0
+            ? "판매 관리"
+            : sellerActiveId === 1
+            ? "MY 서비스"
+            : sellerActiveId === 2
+            ? "MY 포트폴리오"
+            : sellerActiveId === 3
+            ? "수익 관리"
+            : sellerActiveId === 4
+            ? "사업자 인증하기"
+            : ""}
+        </h1>
+        {sellerActiveId === 0 ? (
           <SalesManagement />
-        ) : tabName === "MY 서비스" ? (
+        ) : sellerActiveId === 1 ? (
           <MyService />
-        ) : tabName === "MY 포트폴리오" ? (
+        ) : sellerActiveId === 2 ? (
           <MyPortfolio />
-        ) : tabName === "수익 관리" ? (
+        ) : sellerActiveId === 3 ? (
           <PayManagement />
-        ) : tabName === "사업자 인증하기" ? (
+        ) : sellerActiveId === 4 ? (
           <Business />
         ) : (
           ""
@@ -53,4 +65,4 @@ const LeftArea = styled.div`
 const RightArea = styled.div`
   /* border: 1px solid red; */
 `;
-export default Mypage;
+export default SellerMypage;
