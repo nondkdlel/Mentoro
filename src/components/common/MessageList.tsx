@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { theme } from "@style/theme";
 function MessageList() {
-  const [unRead, setUnRead] = useState(true);
+  const [unRead] = useState(true);
   return (
     <MessageListWrapper>
       <PreviewBox>

@@ -19,9 +19,9 @@ function ReviewCreate() {
           {[...Array(5)].map((el, idx) => (
             <li key={idx} onClick={() => setStar(idx + 1)}>
               {star <= idx ? (
-                <img src="/images/icon/star-off-icon.svg" alt="" />
+                <img src="/images/icon/star-off-icon.svg" alt={el} />
               ) : (
-                <img src="/images/icon/star-on-icon.svg" alt="" />
+                <img src="/images/icon/star-on-icon.svg" alt={el} />
               )}
             </li>
           ))}
