@@ -19,7 +19,7 @@ function CardSection() {
           <span>
             MENTORO에 등록된 전문가와 함께 본인만의 부업을 찾아보세요!
           </span>
-          <Link to="/">더보러가기</Link>
+          <Link to="/specialist">더보러가기</Link>
         </div>
       </div>
     </CardSectionWrapper>

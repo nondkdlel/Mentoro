@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import MainVisual from "@comp/home/MainVisual";
 import PushSection from "@comp/home/PushSection";

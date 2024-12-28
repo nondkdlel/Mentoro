@@ -11,6 +11,8 @@ interface HoldingStatusPropsType {
   isButton?: boolean;
   leftBtnText?: string;
   rightBtnText?: string;
+  leftOnClick?: () => void;
+  RightOnClick?: () => void;
 }
 function HoldingStatus({
   isDouble = false,
@@ -21,6 +23,8 @@ function HoldingStatus({
   isButton = false,
   leftBtnText,
   rightBtnText,
+  leftOnClick,
+  RightOnClick,
 }: HoldingStatusPropsType) {
   return (
     <>
@@ -39,8 +43,8 @@ function HoldingStatus({
 
       {isButton && (
         <ButtonArea>
-          <input type="button" value={leftBtnText} />
-          <input type="button" value={rightBtnText} />
+          <input type="button" value={leftBtnText} onClick={leftOnClick} />
+          <input type="button" value={rightBtnText} onClick={RightOnClick} />
         </ButtonArea>
       )}
     </>
