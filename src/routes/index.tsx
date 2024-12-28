@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     element: <DefaultLayout />,
     children: [
       {
-        path: "/",
+        path: "/Mentoro",
         element: <Home />,
       },
       {
