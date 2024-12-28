@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "homepage": "https://nondkdlel.github.io/Mentoro/",
   "dependencies": {
     "react": "^18.3.1",
     "react-avatar": "^5.0.3",
