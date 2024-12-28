@@ -18,7 +18,7 @@ export default function TheHeader() {
   return (
     <Header>
       <Link
-        to="/"
+        to="/Mentoro/"
         className="logo"
         onClick={() => (proxyAlarmModalStatus.status = false)}
       >
