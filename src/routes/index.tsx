@@ -23,79 +23,84 @@ import CustomerMypage from "@page/mypage/customer";
 
 import Payment from "@page/payment";
 
-const router = createBrowserRouter([
-  {
-    element: <DefaultLayout />,
-    children: [
-      {
-        path: "/Mentoro/",
-        element: <Home />,
-      },
-      {
-        path: "/jobs",
-        element: <Jobs />,
-      },
-      {
-        path: "/specialist",
-        element: <Specialist />,
-      },
-      {
-        path: "/specialist/detail",
-        element: <SpecialistDetail />,
-      },
+const router = createBrowserRouter(
+  [
+    {
+      element: <DefaultLayout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/jobs",
+          element: <Jobs />,
+        },
+        {
+          path: "/specialist",
+          element: <Specialist />,
+        },
+        {
+          path: "/specialist/detail",
+          element: <SpecialistDetail />,
+        },
 
-      {
-        path: "/vod",
-        element: <Vod />,
-      },
-      {
-        path: "/vod/detail",
-        element: <VodDetail />,
-      },
-      {
-        path: "/payment",
-        element: <Payment />,
-      },
-      {
-        path: "/message",
-        element: <Message />,
-      },
-      {
-        path: "/mypage",
-        children: [
-          {
-            path: "seller",
-            element: <SellerMypage />,
-          },
-          {
-            path: "seller/review/create",
-            element: <ReviewCreate />,
-          },
-          {
-            path: "seller/portfolio/create",
-            element: <PortfolioCreate />,
-          },
-          {
-            path: "service/enroll/step1",
-            element: <ServiceEnrollStep1 />,
-          },
-          {
-            path: "service/enroll/step2",
-            element: <ServiceEnrollStep2 />,
-          },
-          {
-            path: "service/enroll/step3",
-            element: <ServiceEnrollStep3 />,
-          },
-          {
-            path: "customer",
-            element: <CustomerMypage />,
-          },
-        ],
-      },
-    ],
-  },
-]);
+        {
+          path: "/vod",
+          element: <Vod />,
+        },
+        {
+          path: "/vod/detail",
+          element: <VodDetail />,
+        },
+        {
+          path: "/payment",
+          element: <Payment />,
+        },
+        {
+          path: "/message",
+          element: <Message />,
+        },
+        {
+          path: "/mypage",
+          children: [
+            {
+              path: "seller",
+              element: <SellerMypage />,
+            },
+            {
+              path: "seller/review/create",
+              element: <ReviewCreate />,
+            },
+            {
+              path: "seller/portfolio/create",
+              element: <PortfolioCreate />,
+            },
+            {
+              path: "service/enroll/step1",
+              element: <ServiceEnrollStep1 />,
+            },
+            {
+              path: "service/enroll/step2",
+              element: <ServiceEnrollStep2 />,
+            },
+            {
+              path: "service/enroll/step3",
+              element: <ServiceEnrollStep3 />,
+            },
+            {
+              path: "customer",
+              element: <CustomerMypage />,
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  {
+    basename: "/Mentoro/",
+  }
+);
 
 export default function Router() {
   return <RouterProvider router={router} />;

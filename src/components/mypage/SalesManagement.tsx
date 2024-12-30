@@ -6,6 +6,8 @@ import { theme } from "@style/theme";
 
 import TabMenu from "@comp/common/TabMenu";
 
+import DummyThumbnail from "@images/dummy-thum.png";
+
 function SalesManagement() {
   const navigate = useNavigate();
   return (
@@ -28,7 +30,7 @@ function SalesManagement() {
       <StatusList>
         <StatusBox>
           <div className="left-box grid-aside">
-            <img src="/images/dummy-thum.png" alt="" />
+            <img src={DummyThumbnail} alt="thumbnail" />
           </div>
           <div className="right-box grid-top">
             <div className="inner-box">

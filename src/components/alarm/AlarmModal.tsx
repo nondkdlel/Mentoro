@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import { theme } from "@style/theme";
 
+import DummyProfile from "@images/dummy-profile.png";
+
 function AlarmModal() {
   return (
     <AlarmModalWrapper>
@@ -10,7 +12,7 @@ function AlarmModal() {
         <p>2024년 12월 24일(화)</p>
       </div>
       <Link className="alarm-box" to="">
-        <img src="/images/dummy-profile.png" alt="" />
+        <img src={DummyProfile} alt="user-profile" />
         <p className="alarm-txt">
           홍길동 님의 평가가 작성되어 구매가 확정되었습니다.
         </p>

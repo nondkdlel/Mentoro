@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 import { StatusList, StatusBox, LinkBtnStyle } from "./styles";
 
+import DummyThumnail from "@images/dummy-thum.png";
+import AddIcon from "@images/icon/add-icon.svg?react";
+
 function MyService() {
   return (
     <MyServiceWrapper>
@@ -11,12 +14,13 @@ function MyService() {
         type="button"
         to="/mypage/service/enroll/step1"
       >
+        <AddIcon />
         <p>서비스 추가하기</p>
       </Link>
       <StatusList>
         <StatusBox>
           <div className="left-box grid-aside">
-            <img src="/images/dummy-thum.png" alt="" />
+            <img src={DummyThumnail} alt="thumbnail" />
           </div>
           <div className="right-box grid-top">
             <div className="inner-box">

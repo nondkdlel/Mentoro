@@ -3,6 +3,11 @@ import styled from "styled-components";
 
 import { theme, Container } from "@style/theme";
 
+import MainVisualObj from "@images/main/main-visual-obj.png";
+import MainVisualBubble01 from "@images/main/main-visual-bubble-01.png";
+import MainVisualBubble02 from "@images/main/main-visual-bubble-02.png";
+import MainVisualBubble03 from "@images/main/main-visual-bubble-03.png";
+
 function MainVisual() {
   return (
     <MainVisualWrapper>
@@ -21,7 +26,7 @@ function MainVisual() {
         </VisualLeft>
         <VisualRight>
           <div className="visual-obj">
-            <img src="/images/main/main-visual-obj.png" alt="" />
+            <img src={MainVisualObj} alt="main-visual-obj" />
           </div>
           <MsgBoxList>
             <div className="msg-box">
@@ -113,19 +118,18 @@ const MsgBoxList = styled.div`
     &:nth-child(1) {
       top: 150px;
       left: 0;
-      background-image: url("/images/main/main-visual-bubble-01.png");
+      background-image: url(${MainVisualBubble01});
     }
     &:nth-child(2) {
       top: 0;
       left: 70%;
       transform: translateX(-50%);
-      background-image: url("/images/main/main-visual-bubble-02.png");
+      background-image: url(${MainVisualBubble02});
     }
     &:nth-child(3) {
       top: 160px;
       right: 0;
-
-      background-image: url("/images/main/main-visual-bubble-03.png");
+      background-image: url(${MainVisualBubble03});
     }
   }
 `;

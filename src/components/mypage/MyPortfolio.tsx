@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 import { StatusList, StatusBox, LinkBtnStyle } from "./styles";
 
+import DummyThumnail from "@images/dummy-thum.png";
+import AddIcon from "@images/icon/add-icon.svg?react";
+
 function MyPortfolio() {
   return (
     <MyPortfolioWrapper>
@@ -11,12 +14,13 @@ function MyPortfolio() {
         type="button"
         to="/mypage/seller/portfolio/create"
       >
+        <AddIcon />
         <p>포트폴리오 등록하기</p>
       </Link>
       <StatusList>
         <StatusBox>
           <div className="left-box grid-aside">
-            <img src="/images/dummy-thum.png" alt="" />
+            <img src={DummyThumnail} alt="thumbnail" />
           </div>
           <div className="right-box grid-top">
             <div className="inner-box">

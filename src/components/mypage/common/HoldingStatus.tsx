@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import { theme } from "@style/theme";
 
+import WithdrawSuccessIcon from "@images/icon/withdraw-success-icon.svg?react";
+import WithdrawFinishIcon from "@images/icon/withdraw-finish-icon.svg?react";
 interface HoldingStatusPropsType {
   isDouble?: boolean;
   firstLeftText?: string;
@@ -30,12 +32,18 @@ function HoldingStatus({
     <>
       <HoldingStatusList>
         <dl>
-          <dt>{firstLeftText}</dt>
+          <dt>
+            <WithdrawSuccessIcon />
+            {firstLeftText}
+          </dt>
           <dd>{firstRightText}</dd>
         </dl>
         {isDouble && (
           <dl>
-            <dt>{secondLeftText}</dt>
+            <dt>
+              <WithdrawFinishIcon />
+              {secondLeftText}
+            </dt>
             <dd>{secondRightText}</dd>
           </dl>
         )}
@@ -58,18 +66,11 @@ const HoldingStatusList = styled.div`
     grid-auto-flow: column;
     border: 1px solid ${theme.colors.borderColor};
     border-radius: 6px;
-    padding: 30px 20px;
+    padding: 30px;
     font-size: 18px;
     margin-bottom: 20px;
-    &:nth-child(1) {
-      dt::before {
-        background-image: url("/images/icon/withdraw-success-icon.svg");
-      }
-    }
+
     &:nth-child(2) {
-      dt::before {
-        background-image: url("/images/icon/withdraw-finish-icon.svg");
-      }
       dt,
       dd {
         color: ${theme.colors.gray};
@@ -77,12 +78,9 @@ const HoldingStatusList = styled.div`
     }
     dt {
       font-size: 18px;
-      &::before {
-        content: "";
+      svg {
         display: inline-block;
         vertical-align: middle;
-        width: 20px;
-        height: 20px;
         margin-right: 10px;
       }
     }

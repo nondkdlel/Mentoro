@@ -2,6 +2,13 @@ import styled from "styled-components";
 
 import { theme, Container } from "@style/theme";
 
+import MainSection02_01 from "@images/main/main-section-02-01.png";
+import MainSection02_02 from "@images/main/main-section-02-02.png";
+import MainSection02_03 from "@images/main/main-section-02-03.png";
+import MainSection02_04 from "@images/main/main-section-02-04.png";
+import MainSection02_05 from "@images/main/main-section-02-05.png";
+import MainSection02_06 from "@images/main/main-section-02-06.png";
+
 function CategorySection() {
   return (
     <CategorySectionWrapper>
@@ -24,27 +31,27 @@ function CategorySection() {
       </div>
       <div className="cate-list">
         <div className="cate-box">
-          <img src="/images/main/main-section-02-01.png" alt="" />
+          <img src={MainSection02_01} alt="ai서비스" />
           <p>AI 서비스</p>
         </div>
         <div className="cate-box">
-          <img src="/images/main/main-section-02-02.png" alt="" />
+          <img src={MainSection02_02} alt="부동산" />
           <p>부동산</p>
         </div>
         <div className="cate-box">
-          <img src="/images/main/main-section-02-03.png" alt="" />
+          <img src={MainSection02_03} alt="영상/사진" />
           <p>영상/사진</p>
         </div>
         <div className="cate-box">
-          <img src="/images/main/main-section-02-04.png" alt="" />
+          <img src={MainSection02_04} alt="문서/번역" />
           <p>문서/번역</p>
         </div>
         <div className="cate-box">
-          <img src="/images/main/main-section-02-05.png" alt="" />
+          <img src={MainSection02_05} alt="블로그" />
           <p>블로그</p>
         </div>
         <div className="cate-box">
-          <img src="/images/main/main-section-02-06.png" alt="" />
+          <img src={MainSection02_06} alt="인플루언서" />
           <p>인플루언서</p>
         </div>
       </div>

@@ -4,6 +4,11 @@ import styled from "styled-components";
 
 import { theme } from "@style/theme";
 
+import DummyThumbnail from "@images/dummy-thum.png";
+import FavoriteOnIcon from "@images/icon/favorite-on-icon.svg";
+import FavoriteOFFIcon from "@images/icon/favorite-off-icon.svg";
+import StarIcon from "@images/icon/star-icon.svg";
+
 interface ProductPropsType {
   url?: string;
 }
@@ -24,16 +29,14 @@ function ProductBox({ url = "" }: ProductPropsType) {
   const onWish = (e: any) => {
     setWish(!wish);
     const target = e.target;
-    wish
-      ? (target.src = "/images/icon/favorite-on-icon.svg")
-      : (target.src = "/images/icon/favorite-off-icon.svg");
+    wish ? (target.src = FavoriteOnIcon) : (target.src = FavoriteOFFIcon);
   };
   return (
     <ProductBoxWrapper>
       <div className="thum-box">
         <img
           className="thum-img"
-          src="/images/dummy-thum.png"
+          src={DummyThumbnail}
           alt=""
           ref={refImg}
           onMouseOver={handleMouseOver}
@@ -46,7 +49,7 @@ function ProductBox({ url = "" }: ProductPropsType) {
           onMouseOut={handleMouseOut}
           onClick={onWish}
         >
-          <img src="/images/icon/favorite-off-icon.svg" alt="" />
+          <img src={FavoriteOFFIcon} alt="favorite-off" />
         </div>
       </div>
       <Link to={url}>
@@ -55,11 +58,7 @@ function ProductBox({ url = "" }: ProductPropsType) {
         </p>
         <ObjectiveInfo>
           <div className="left-box">
-            <img
-              className="star-icon"
-              src="/images/icon/star-icon.svg"
-              alt=""
-            />
+            <img className="star-icon" src={StarIcon} alt="star-icon" />
             <p>
               4.0 <span>(100)</span>{" "}
             </p>

@@ -2,13 +2,17 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import { theme } from "@style/theme";
+
+import ProfileImg from "@images/dummy-profile.png";
+import UnreadIcon from "@images/icon/unread-icon.svg";
+
 function MessageList() {
   const [unRead] = useState(true);
   return (
     <MessageListWrapper>
       <PreviewBox>
         <div className="profile-img">
-          <img src="images/dummy-profile.png" alt="" />
+          <img src={ProfileImg} alt="profile-img" />
         </div>
         <div className="preview-txt">
           <p className="user-name">홍길동</p>
@@ -17,9 +21,7 @@ function MessageList() {
             보이지 않습니다.
           </p>
         </div>
-        <div className="icon">
-          {unRead ? <img src="/images/icon/unread-icon.svg" /> : ""}
-        </div>
+        <div className="icon">{unRead ? <img src={UnreadIcon} /> : ""}</div>
       </PreviewBox>
     </MessageListWrapper>
   );

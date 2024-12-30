@@ -48,7 +48,7 @@ function ServiceEnrollSetp1() {
         />
         <BtnGroup
           isDouble={false}
-          padding={"80px 0 0"}
+          $padding={"80px 0 0"}
           singleType={"button"}
           singleBtnText="다음으로"
           singleOnClick={nextOnClick}

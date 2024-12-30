@@ -4,11 +4,17 @@ import styled from "styled-components";
 
 import { theme } from "@style/theme";
 
+import DefaultProfile from "@images/dummy-profile.png";
+import CustomerIcon from "@images/icon/change-circle-customer-icon.svg";
+import SellerIcon from "@images/icon/change-circle-seller-icon.svg";
+import ProfileIcon from "@images/icon/profile-icon.svg?react";
+
 function Profile() {
   const [imgFile, setImgFile] = useState<string>("");
   const imgRef = useRef<any>(null);
   const [userName] = useState<string>("홍길동");
   const [readOnly, setReadOnly] = useState(true);
+  const [isHover, setIsHover] = useState(false);
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -38,9 +44,19 @@ function Profile() {
       ? navigate("/mypage/customer")
       : navigate("/mypage/seller");
   };
+  const handleMouseOver = () => {
+    setIsHover(true);
+  };
+  const handleMouseOut = () => {
+    setIsHover(false);
+  };
   return (
     <ProfileWrapper>
-      <div className="profile-img-box">
+      <div
+        className="profile-img-box"
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
         <input
           id="uploadFile"
           type="file"
@@ -52,10 +68,11 @@ function Profile() {
         <label htmlFor="uploadFile">
           <img
             className="default-profile-img"
-            src={imgFile ? imgFile : "/images/dummy-profile.png"}
+            src={imgFile ? imgFile : DefaultProfile}
             alt="profile"
           />
         </label>
+        {isHover ? <ProfileIcon /> : ""}
       </div>
       <UserNameArea>
         <input
@@ -72,14 +89,7 @@ function Profile() {
         />
       </UserNameArea>
       <RoleButton className={url === "seller" ? "" : "on"} onClick={onLoadType}>
-        <img
-          src={
-            url === "seller"
-              ? "/images/icon/change-circle-customer-icon.svg"
-              : "/images/icon/change-circle-seller-icon.svg"
-          }
-          alt=""
-        />
+        <img src={url === "seller" ? CustomerIcon : SellerIcon} alt="" />
         <p>{url === "seller" ? "고객 모드로 전환" : "전문가 모드로 전환"}</p>
       </RoleButton>
     </ProfileWrapper>
@@ -105,16 +115,13 @@ const ProfileWrapper = styled.div`
       height: 100%;
       background-color: rgba(0, 0, 0, 0.2);
     }
-    &:hover::before {
-      content: "";
+    svg {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 30px;
-      height: 30px;
-      background-image: url("/images/icon/profile-icon.svg");
-      object-fit: contain;
+      width: 30px !important;
+      height: 30px !important;
     }
     .default-profile-img {
       width: 100%;

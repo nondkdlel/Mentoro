@@ -104,23 +104,19 @@ export const LinkBtnStyle = css`
     &:hover {
       ${HoverStyles}
     }
-    p {
-      font-size: 16px;
-      line-height: 53px;
-      padding-left: 10px;
-      text-align: center;
-    }
-    &::before {
-      content: "";
-      display: inline-block;
-      vertical-align: middle;
-      width: 20px;
-      height: 20px;
+    svg {
       position: absolute;
       top: 50%;
       left: 20px;
       transform: translateY(-50%);
-      background-image: url("/images/icon/add-icon.svg");
+      width: 20px !important;
+      height: 20px !important;
+    }
+    p {
+      font-size: 16px;
+      line-height: 53px;
+      text-align: center;
+      padding-left: 15px;
     }
   }
 `;

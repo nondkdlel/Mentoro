@@ -4,6 +4,9 @@ import styled from "styled-components";
 import { SectionTitleStyle } from "./styles";
 import { theme, Container } from "@style/theme";
 
+import DummyThumbnail from "@images/dummy-thum.png";
+import StarIcon from "@images/icon/star-on-icon.svg?react";
+
 function VodSection() {
   return (
     <VodSectionWrapper>
@@ -11,12 +14,13 @@ function VodSection() {
       <div className="inner-content">
         <div className="thum-list">
           <div className="thum-box">
-            <img src="/images/dummy-thum.png" alt="" />
+            <img src={DummyThumbnail} alt="thumbnail" />
             <p className="thum-tit">
               동대문 사입, 의류매장운영 10년차가 쉽게 알려줍니다.
             </p>
             <div className="review-area">
               <div className="left-box">
+                <StarIcon />
                 <p>
                   4.0 <span>(100)</span>
                 </p>
@@ -25,12 +29,13 @@ function VodSection() {
             </div>
           </div>
           <div className="thum-box">
-            <img src="/images/dummy-thum.png" alt="" />
+            <img src={DummyThumbnail} alt="thumbnail" />
             <p className="thum-tit">
               동대문 사입, 의류매장운영 10년차가 쉽게 알려줍니다.
             </p>
             <div className="review-area">
               <div className="left-box">
+                <StarIcon />
                 <p>
                   4.0 <span>(100)</span>
                 </p>
@@ -39,12 +44,13 @@ function VodSection() {
             </div>
           </div>
           <div className="thum-box">
-            <img src="/images/dummy-thum.png" alt="" />
+            <img src={DummyThumbnail} alt="thumbnail" />
             <p className="thum-tit">
               동대문 사입, 의류매장운영 10년차가 쉽게 알려줍니다.
             </p>
             <div className="review-area">
               <div className="left-box">
+                <StarIcon />
                 <p>
                   4.0 <span>(100)</span>
                 </p>
@@ -53,12 +59,13 @@ function VodSection() {
             </div>
           </div>
           <div className="thum-box">
-            <img src="/images/dummy-thum.png" alt="" />
+            <img src={DummyThumbnail} alt="thumbnail" />
             <p className="thum-tit">
               동대문 사입, 의류매장운영 10년차가 쉽게 알려줍니다.
             </p>
             <div className="review-area">
               <div className="left-box">
+                <StarIcon />
                 <p>
                   4.0 <span>(100)</span>
                 </p>
@@ -121,17 +128,17 @@ const VodSectionWrapper = styled.div`
       grid-auto-flow: column;
       align-items: center;
       .left-box {
+        svg {
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 5px;
+          width: 20px !important;
+          height: 20px !important;
+        }
         p {
-          line-height: 1.5;
-          &::before {
-            content: "";
-            display: inline-block;
-            vertical-align: top;
-            width: 20px;
-            height: 20px;
-            background-image: url("/images/icon/star-on-icon.svg");
-            margin-right: 5px;
-          }
+          display: inline-block;
+          vertical-align: middle;
+
           span {
             color: ${theme.colors.gray};
           }

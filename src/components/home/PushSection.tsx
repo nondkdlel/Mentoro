@@ -3,27 +3,31 @@ import styled from "styled-components";
 import { SectionTitleStyle } from "./styles";
 import { theme, Container } from "@style/theme";
 
+import MainSection01_01 from "@images/main/main-section-01-01.png";
+import MainSection01_02 from "@images/main/main-section-01-02.png";
+import MainSection01_03 from "@images/main/main-section-01-03.png";
+
 function PushSection() {
   return (
     <PushSectionWrapper>
       <h1>MENTORO만의 부업 추천 기능</h1>
       <div className="inner-content">
         <div className="split-content">
-          <img src="/images/main/main-section-01-01.png" alt="" />
+          <img src={MainSection01_01} alt="" />
           <p>N잡러 전문가 컨택</p>
           <span>
             "부업에 대해 물어보고싶은데, <br /> 막상 물어볼 곳이 없어"
           </span>
         </div>
         <div className="split-content">
-          <img src="/images/main/main-section-01-02.png" alt="" />
+          <img src={MainSection01_02} alt="" />
           <p>부업 추천 AI</p>
           <span>
             "부업에 대해 물어보고싶은데, <br /> 막상 물어볼 곳이 없어"
           </span>
         </div>
         <div className="split-content">
-          <img src="/images/main/main-section-01-03.png" alt="" />
+          <img src={MainSection01_03} alt="" />
           <p>전자책 및 VOD 구매</p>
           <span>
             "부업에 대해 물어보고싶은데, <br /> 막상 물어볼 곳이 없어"

@@ -43,7 +43,7 @@ function ServiceEnrollStep2() {
         />
         <BtnGroup
           isDouble={true}
-          padding={"80px 0 0"}
+          $padding={"80px 0 0"}
           singleType={"button"}
           doubleType="button"
           singleBtnText="다음으로"

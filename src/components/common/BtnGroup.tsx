@@ -8,14 +8,14 @@ interface BtnGroupPropsType {
   doubleBtnText?: string;
   singleType?: string;
   doubleType?: string;
-  padding?: string;
+  $padding?: string;
   singleOnClick?: () => void;
   doubleOnClick?: () => void;
   width?: string;
 }
 function BtnGroup({
   width,
-  padding,
+  $padding,
   singleType,
   doubleType,
   isDouble,
@@ -25,7 +25,7 @@ function BtnGroup({
   doubleOnClick,
 }: BtnGroupPropsType) {
   return (
-    <BtnGroupArea padding={padding}>
+    <BtnGroupArea $padding={$padding}>
       {isDouble ? (
         <input
           type={doubleType}
@@ -50,7 +50,7 @@ function BtnGroup({
 const BtnGroupArea = styled.div<BtnGroupPropsType>`
   text-align: center;
   margin: 0 auto;
-  padding: ${({ padding }) => padding ?? "0"};
+  padding: ${({ $padding }) => $padding ?? "0"};
   input {
     text-align: center;
     background-color: ${theme.colors.mainColor};

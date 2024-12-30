@@ -5,6 +5,7 @@ import { theme, LayoutStyle } from "@style/theme";
 import { useSnapshot } from "valtio";
 import { proxyAlarmModalStatus } from "@valtio/alarm/AlarmStatus";
 import AlarmModal from "@comp/alarm/AlarmModal";
+
 export default function TheHeader() {
   const navigations = [
     { to: "/jobs", label: "AI N잡 설계" },
@@ -18,7 +19,7 @@ export default function TheHeader() {
   return (
     <Header>
       <Link
-        to="/Mentoro/"
+        to="/"
         className="logo"
         onClick={() => (proxyAlarmModalStatus.status = false)}
       >

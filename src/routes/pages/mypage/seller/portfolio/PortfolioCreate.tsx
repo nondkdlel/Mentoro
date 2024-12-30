@@ -40,7 +40,7 @@ function PortfolioCreate() {
         isMultiple={true}
       />
       <BtnGroup
-        padding="80px 0 0"
+        $padding="80px 0 0"
         isDouble={false}
         singleType="button"
         singleBtnText="등록하기"

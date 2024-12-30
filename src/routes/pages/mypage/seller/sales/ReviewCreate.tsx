@@ -6,6 +6,9 @@ import { ContentContainer } from "@style/theme";
 import FormInput from "@comp/FormInput";
 import BtnGroup from "@comp/common/BtnGroup";
 
+import StarOffIcon from "@images/icon/star-off-icon.svg";
+import StarOnIcon from "@images/icon/star-on-icon.svg";
+
 function ReviewCreate() {
   const [star, setStar] = useState(0);
   const navigate = useNavigate();
@@ -19,9 +22,9 @@ function ReviewCreate() {
           {[...Array(5)].map((el, idx) => (
             <li key={idx} onClick={() => setStar(idx + 1)}>
               {star <= idx ? (
-                <img src="/images/icon/star-off-icon.svg" alt={el} />
+                <img src={StarOffIcon} alt={el} />
               ) : (
-                <img src="/images/icon/star-on-icon.svg" alt={el} />
+                <img src={StarOnIcon} alt={el} />
               )}
             </li>
           ))}
@@ -34,7 +37,7 @@ function ReviewCreate() {
       />
       <BtnGroup
         isDouble={false}
-        padding={"80px 0 0"}
+        $padding={"80px 0 0"}
         singleType="button"
         singleBtnText="리뷰 남기기"
         singleOnClick={() => navigate("/mypage/seller")}
